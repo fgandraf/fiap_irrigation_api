@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Sensor {
 
-    private final Integer _id;
-    public Integer getId() { return _id; }
+    private final Long _id;
+    public Long getId() { return _id; }
 
     private String _type;
     public String getType() { return _type; }
@@ -28,7 +28,7 @@ public class Sensor {
     public List<Notification> getNotifications() { return _notifications; }
     public void setNotification(Notification notification) { _notifications.add(notification); }
 
-    public Sensor(Integer id, String type, String location, Area area){
+    public Sensor(Long id, String type, String location, Area area){
         this._id = id;
         this._type = type;
         this._location = location;

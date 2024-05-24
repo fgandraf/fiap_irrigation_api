@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public class Notification {
 
-    private final Integer _id;
-    public Integer getId() { return _id; }
+    private final Long _id;
+    public Long getId() { return _id; }
 
     private final String _description;
     public String getDescription() { return _description; }
@@ -16,7 +16,7 @@ public class Notification {
     private final Sensor _sensor;
     public Sensor getSensor() { return _sensor; }
 
-    public Notification(Integer id, String description, LocalDateTime date, Sensor sensor) {
+    public Notification(Long id, String description, LocalDateTime date, Sensor sensor) {
         this._id = id;
         this._description = description;
         this._date = date;

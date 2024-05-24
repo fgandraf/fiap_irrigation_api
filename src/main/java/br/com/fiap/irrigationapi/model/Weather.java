@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public class Weather {
 
-    private final Integer _id;
-    public Integer getId() { return _id; }
+    private final Long _id;
+    public Long getId() { return _id; }
 
     private final LocalDateTime _time;
     public LocalDateTime getTime() { return _time; }
@@ -20,7 +20,7 @@ public class Weather {
     public String getDescription() { return _description; }
 
 
-    public Weather(Integer id, LocalDateTime time, Integer temperature, Integer humidity, String description) {
+    public Weather(Long id, LocalDateTime time, Integer temperature, Integer humidity, String description) {
         this._id = id;
         this._time = time;
         this._temperature = temperature;

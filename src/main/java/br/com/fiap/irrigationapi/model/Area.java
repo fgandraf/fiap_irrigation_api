@@ -2,8 +2,8 @@ package br.com.fiap.irrigationapi.model;
 
 public class Area {
 
-    private final Integer _id;
-    public Integer getId() { return _id; }
+    private final Long _id;
+    public Long getId() { return _id; }
 
     private final String _description;
     public String getDescription() { return _description; }
@@ -14,7 +14,7 @@ public class Area {
     private final String _size;
     public String getSize() { return _size; }
 
-    public Area(Integer id, String description, String location, String size) {
+    public Area(Long id, String description, String location, String size) {
         this._id = id;
         this._description = description;
         this._location = location;
