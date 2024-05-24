@@ -1,26 +1,42 @@
 package br.com.fiap.irrigationapi.model;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
+@Entity
+@Table(name = "tbl_notification")
+@Getter
+@Setter
 public class Notification {
 
-    private final Long _id;
-    public Long getId() { return _id; }
+    @Id
+    @Column(name = "notification_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_NOTIFICATION")
+    @SequenceGenerator(name = "SEQ_NOTIFICATION", sequenceName = "SEQ_NOTIFICATION", allocationSize = 1)
+    private Long id;
 
-    private final String _description;
-    public String getDescription() { return _description; }
+    private String description;
 
-    private final LocalDateTime _date;
-    public LocalDateTime getDate() { return _date; }
+    private LocalDateTime timestamp;
 
-    private final Sensor _sensor;
-    public Sensor getSensor() { return _sensor; }
+    @ManyToOne
+    @JoinColumn(name = "sensor_id")
+    private Sensor sensor;
 
-    public Notification(Long id, String description, LocalDateTime date, Sensor sensor) {
-        this._id = id;
-        this._description = description;
-        this._date = date;
-        this._sensor = sensor;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Notification that = (Notification) o;
+        return Objects.equals(id, that.id) && Objects.equals(description, that.description) && Objects.equals(timestamp, that.timestamp) && Objects.equals(sensor, that.sensor);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, description, timestamp, sensor);
+    }
 }

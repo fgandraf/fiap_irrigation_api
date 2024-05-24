@@ -1,24 +1,40 @@
 package br.com.fiap.irrigationapi.model;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import java.util.Objects;
+
+@Entity
+@Table(name = "tbl_area")
+@Getter
+@Setter
 public class Area {
 
-    private final Long _id;
-    public Long getId() { return _id; }
+    @Id
+    @Column(name = "area_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_AREA")
+    @SequenceGenerator(name = "SEQ_AREA", sequenceName = "SEQ_AREA", allocationSize = 1)
+    private Long id;
 
-    private final String _description;
-    public String getDescription() { return _description; }
+    private String description;
 
-    private final String _location;
-    public String getLocation() { return _location; }
+    private String location;
 
-    private final String _size;
-    public String getSize() { return _size; }
+    private String size;
 
-    public Area(Long id, String description, String location, String size) {
-        this._id = id;
-        this._description = description;
-        this._location = location;
-        this._size = size;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Area area = (Area) o;
+        return Objects.equals(id, area.id) && Objects.equals(description, area.description) && Objects.equals(location, area.location) && Objects.equals(size, area.size);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, description, location, size);
     }
 
 }

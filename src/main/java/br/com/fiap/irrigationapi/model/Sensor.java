@@ -1,40 +1,48 @@
 package br.com.fiap.irrigationapi.model;
 
-import java.util.ArrayList;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.List;
+import java.util.Objects;
 
+@Entity
+@Table(name = "tbl_sensor")
+@Getter
+@Setter
 public class Sensor {
 
-    private final Long _id;
-    public Long getId() { return _id; }
+    @Id
+    @Column(name = "sensor_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SENSOR")
+    @SequenceGenerator(name = "SEQ_SENSOR", sequenceName = "SEQ_SENSOR", allocationSize = 1)
+    private Long id;
 
-    private String _type;
-    public String getType() { return _type; }
-    public void setType(String type) { this._type = type; }
+    private String type;
 
-    private String _location;
-    public String getLocation() { return _location; }
-    public void setLocation(String location) { this._location = location; }
+    private String location;
 
-    private Area _area;
-    public Area getArea() { return _area; }
-    public void setArea(Area area) { this._area = area; }
+    @ManyToOne
+    @JoinColumn(name = "area_id")
+    private Area area;
 
-    private final List<Weather> _weather;
-    public List<Weather> getWeather() { return _weather; }
-    public void setWeather(Weather weather) { _weather.add(weather); }
+    @OneToMany(mappedBy = "sensor")
+    private List<Weather> weathers;
 
-    private final List<Notification> _notifications;
-    public List<Notification> getNotifications() { return _notifications; }
-    public void setNotification(Notification notification) { _notifications.add(notification); }
+    @OneToMany(mappedBy = "sensor")
+    private List<Notification> notifications;
 
-    public Sensor(Long id, String type, String location, Area area){
-        this._id = id;
-        this._type = type;
-        this._location = location;
-        this._area = area;
-        this._weather = new ArrayList<>();
-        this._notifications = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sensor sensor = (Sensor) o;
+        return Objects.equals(id, sensor.id) && Objects.equals(type, sensor.type) && Objects.equals(location, sensor.location) && Objects.equals(area, sensor.area) && Objects.equals(weathers, sensor.weathers) && Objects.equals(notifications, sensor.notifications);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type, location, area, weathers, notifications);
+    }
 }

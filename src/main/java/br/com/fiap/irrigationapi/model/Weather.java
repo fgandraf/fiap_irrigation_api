@@ -1,31 +1,42 @@
 package br.com.fiap.irrigationapi.model;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
+@Entity
+@Table(name = "tbl_weather")
+@Getter
+@Setter
 public class Weather {
 
-    private final Long _id;
-    public Long getId() { return _id; }
+    @Id
+    @Column(name = "weather_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_WEATHER")
+    @SequenceGenerator(name = "SEQ_WEATHER", sequenceName = "SEQ_WEATHER", allocationSize = 1)
+    private Long id;
 
-    private final LocalDateTime _time;
-    public LocalDateTime getTime() { return _time; }
+    private LocalDateTime timestamp;
 
-    private final Integer _temperature;
-    public Integer getTemperature() { return _temperature; }
+    private Integer temperature;
 
-    private final Integer _humidity;
-    public Integer getHumidity() { return _humidity; }
+    private Integer humidity;
 
-    private final String _description;
-    public String getDescription() { return _description; }
+    private String description;
 
 
-    public Weather(Long id, LocalDateTime time, Integer temperature, Integer humidity, String description) {
-        this._id = id;
-        this._time = time;
-        this._temperature = temperature;
-        this._humidity = humidity;
-        this._description = description;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Weather weather = (Weather) o;
+        return Objects.equals(id, weather.id) && Objects.equals(timestamp, weather.timestamp) && Objects.equals(temperature, weather.temperature) && Objects.equals(humidity, weather.humidity) && Objects.equals(description, weather.description);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, timestamp, temperature, humidity, description);
+    }
 }
