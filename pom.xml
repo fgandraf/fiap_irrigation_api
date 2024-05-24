@@ -14,9 +14,10 @@
 	<name>irrigationapi</name>
 	<description>An Inteligent Irrigation API</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
+
 		<!-- JWT -->
 		<dependency>
 			<groupId>com.auth0</groupId>
