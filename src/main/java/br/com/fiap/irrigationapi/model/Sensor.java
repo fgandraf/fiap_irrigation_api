@@ -22,9 +22,9 @@ public class Sensor {
 
     private String location;
 
-    @ManyToOne
-    @JoinColumn(name = "area_id")
-    private Area area;
+//    @ManyToOne
+//    @JoinColumn(name = "area_id")
+//    private Area area;
 
     @OneToMany(mappedBy = "sensor")
     private List<Weather> weathers;
@@ -32,17 +32,16 @@ public class Sensor {
     @OneToMany(mappedBy = "sensor")
     private List<Notification> notifications;
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Sensor sensor = (Sensor) o;
-        return Objects.equals(id, sensor.id) && Objects.equals(type, sensor.type) && Objects.equals(location, sensor.location) && Objects.equals(area, sensor.area) && Objects.equals(weathers, sensor.weathers) && Objects.equals(notifications, sensor.notifications);
+        return Objects.equals(id, sensor.id) && Objects.equals(type, sensor.type) && Objects.equals(location, sensor.location) && Objects.equals(weathers, sensor.weathers) && Objects.equals(notifications, sensor.notifications);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type, location, area, weathers, notifications);
+        return Objects.hash(id, type, location, weathers, notifications);
     }
 }

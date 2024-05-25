@@ -26,17 +26,21 @@ public class Weather {
 
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "sensor_id")
+    private Sensor sensor;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Weather weather = (Weather) o;
-        return Objects.equals(id, weather.id) && Objects.equals(timestamp, weather.timestamp) && Objects.equals(temperature, weather.temperature) && Objects.equals(humidity, weather.humidity) && Objects.equals(description, weather.description);
+        return Objects.equals(id, weather.id) && Objects.equals(timestamp, weather.timestamp) && Objects.equals(temperature, weather.temperature) && Objects.equals(humidity, weather.humidity) && Objects.equals(description, weather.description) && Objects.equals(sensor, weather.sensor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, timestamp, temperature, humidity, description);
+        return Objects.hash(id, timestamp, temperature, humidity, description, sensor);
     }
 }

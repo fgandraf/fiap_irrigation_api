@@ -30,7 +30,7 @@ public class User implements UserDetails {
 
     private UserRole role;
 
-    private Boolean enabled;
+    private Boolean active;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -57,7 +57,7 @@ public class User implements UserDetails {
     public boolean isCredentialsNonExpired() { return true; }
 
     @Override
-    public boolean isEnabled() { return this.enabled; }
+    public boolean isEnabled() { return this.active; }
 
     @Override
     public boolean equals(Object o) {
