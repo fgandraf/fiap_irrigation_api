@@ -30,7 +30,6 @@ public class Weather {
     @JoinColumn(name = "sensor_id")
     private Sensor sensor;
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

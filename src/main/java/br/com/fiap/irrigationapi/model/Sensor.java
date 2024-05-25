@@ -22,9 +22,9 @@ public class Sensor {
 
     private String location;
 
-//    @ManyToOne
-//    @JoinColumn(name = "area_id")
-//    private Area area;
+    @ManyToOne
+    @JoinColumn(name = "area_id")
+    private Area area;
 
     @OneToMany(mappedBy = "sensor")
     private List<Weather> weathers;
