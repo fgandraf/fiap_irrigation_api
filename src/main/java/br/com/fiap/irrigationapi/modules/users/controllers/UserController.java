@@ -48,21 +48,21 @@ public class UserController {
         return service.save(userRegisterInput);
     }
 
-    @PostMapping("/activate/{id}")
+    @PutMapping("/activate/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity activateUser(@PathVariable Long id) {
         var user = service.activate(id);
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/deactivate/{id}")
+    @PutMapping("/deactivate/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity deactivateUser(@PathVariable Long id) {
         var user = service.deactivate(id);
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/update-info")
+    @PutMapping("/update-info")
     @ResponseStatus(HttpStatus.CREATED)
     public UserOutput updateInfo(@RequestBody @Valid UserInfoUpdateInput userInfoUpdateInput) {
 
@@ -74,14 +74,14 @@ public class UserController {
         return service.update(user);
     }
 
-    @PostMapping("/upgrade-permission/{id}")
+    @PutMapping("/upgrade-permission/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity upgradePermission(@PathVariable Long id) {
         var user = service.upgradePermission(id);
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/downgrade-permission/{id}")
+    @PutMapping("/downgrade-permission/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity downgradePermission(@PathVariable Long id) {
         var user = service.downgradePermission(id);

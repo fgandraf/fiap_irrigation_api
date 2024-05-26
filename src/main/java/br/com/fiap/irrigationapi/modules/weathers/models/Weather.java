@@ -1,6 +1,7 @@
 package br.com.fiap.irrigationapi.modules.weathers.models;
 
 import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class Weather {
 
     private String description;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "sensor_id")
     private Sensor sensor;

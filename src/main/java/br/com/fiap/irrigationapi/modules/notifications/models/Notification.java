@@ -1,6 +1,7 @@
 package br.com.fiap.irrigationapi.modules.notifications.models;
 
 import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class Notification {
 
     private LocalDateTime timestamp;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "sensor_id")
     private Sensor sensor;

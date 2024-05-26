@@ -1,5 +1,6 @@
 package br.com.fiap.irrigationapi.modules.users.services;
 
+import br.com.fiap.irrigationapi.exceptions.NotFoundException;
 import br.com.fiap.irrigationapi.modules.users.dtos.UserOutput;
 import br.com.fiap.irrigationapi.modules.users.dtos.UserRegisterInput;
 import br.com.fiap.irrigationapi.modules.users.models.User;
@@ -48,7 +49,7 @@ public class UserService implements UserDetailsService {
             user.get().setActive(true);
             return repository.save(user.get());
         } else {
-            throw new RuntimeException("User not found!");
+            throw new NotFoundException("User", id);
         }
     }
 
@@ -58,7 +59,7 @@ public class UserService implements UserDetailsService {
             user.get().setActive(false);
             return repository.save(user.get());
         } else {
-            throw new RuntimeException("User not found!");
+            throw new NotFoundException("User", id);
         }
     }
 
@@ -67,7 +68,7 @@ public class UserService implements UserDetailsService {
         if (user.isPresent()) {
             return user.get();
         } else {
-            throw new RuntimeException("User not found!!");
+            throw new NotFoundException("User", id);
         }
     }
 
@@ -78,7 +79,7 @@ public class UserService implements UserDetailsService {
             BeanUtils.copyProperties(userDetail, user);
             return user;
         } else {
-            throw new RuntimeException("User not found!!");
+            throw new NotFoundException("User", id);
         }
     }
 
@@ -88,7 +89,7 @@ public class UserService implements UserDetailsService {
             user.get().setRole(UserRole.ADMIN);
             return repository.save(user.get());
         } else {
-            throw new RuntimeException("User not found!");
+            throw new NotFoundException("User", id);
         }
     }
 
@@ -98,7 +99,7 @@ public class UserService implements UserDetailsService {
             user.get().setRole(UserRole.USER);
             return repository.save(user.get());
         } else {
-            throw new RuntimeException("User not found!");
+            throw new NotFoundException("User", id);
         }
     }
 
