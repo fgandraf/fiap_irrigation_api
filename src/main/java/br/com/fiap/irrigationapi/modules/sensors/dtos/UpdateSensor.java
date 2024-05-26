@@ -4,10 +4,12 @@ import br.com.fiap.irrigationapi.modules.areas.models.Area;
 import br.com.fiap.irrigationapi.modules.notifications.models.Notification;
 import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
 import br.com.fiap.irrigationapi.modules.weathers.models.Weather;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.List;
 
 public record UpdateSensor(
+        @NotBlank(message = "ID is required!")
         Long id,
         String type,
         String location,
