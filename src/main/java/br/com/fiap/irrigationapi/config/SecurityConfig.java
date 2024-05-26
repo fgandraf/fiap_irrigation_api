@@ -33,7 +33,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
 
                         // AREAS
-                        // TO DO: IMPLEMENTS
+                        .requestMatchers(HttpMethod.POST, "/api/areas").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/areas").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/areas/all").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.GET, "/api/areas/id/").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/areas/delete/").hasRole("ADMIN")
 
                         // NOTIFICATIONS
                         // TO DO: IMPLEMENTS
@@ -42,7 +46,11 @@ public class SecurityConfig {
                         // TO DO: IMPLEMENTS
 
                         // SENSORS
-                        // TO DO: IMPLEMENTS
+                        .requestMatchers(HttpMethod.POST, "/api/sensors").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/sensors").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/sensors/all").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.GET, "/api/sensors/id/").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.GET, "/api/sensors/delete/").hasRole("ADMIN")
 
                         // USERS
                         .requestMatchers(HttpMethod.POST, "/api/users/register").permitAll()
