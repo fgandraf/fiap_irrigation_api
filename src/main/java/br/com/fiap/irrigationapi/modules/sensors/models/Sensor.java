@@ -3,6 +3,7 @@ package br.com.fiap.irrigationapi.modules.sensors.models;
 import br.com.fiap.irrigationapi.modules.weathers.models.Weather;
 import br.com.fiap.irrigationapi.modules.areas.models.Area;
 import br.com.fiap.irrigationapi.modules.notifications.models.Notification;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class Sensor {
 
     private String location;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "area_id")
     private Area area;
