@@ -8,7 +8,7 @@ CREATE SEQUENCE SEQ_USER
 
 CREATE TABLE TBL_USER (
     USER_ID NUMBER(19,0) NOT NULL,
-    ACTIVE NUMBER(1,0) CHECK (ACTIVE IN (0,1)),
+    ACTIVE NUMBER(1,0) DEFAULT 0 CHECK (ACTIVE IN (0,1)),
     EMAIL VARCHAR2(255 CHAR),
     NAME VARCHAR2(255 CHAR),
     PASSWORD VARCHAR2(255 CHAR),
@@ -16,7 +16,13 @@ CREATE TABLE TBL_USER (
     PRIMARY KEY (USER_ID)
 );
 
-INSERT INTO TBL_USER VALUES (1, "System Administrator", "admin@admin.com", "admin123", "ADMIN", true);
+INSERT INTO
+    TBL_USER
+        (USER_ID, ACTIVE, EMAIL, NAME, PASSWORD, ROLE)
+    VALUES
+        (1, 1, 'admin@admin.com', 'System Administrator', '$2a$10$dxlL.53a1jUX4Zee3E1scuXYLG8Zg.4qydFVlcIzSDsitcd900OKC', 'ADMIN');
+-- Password '1234abcd' after encrypt
+
 
 -----------------| AREA |-----------------
 
