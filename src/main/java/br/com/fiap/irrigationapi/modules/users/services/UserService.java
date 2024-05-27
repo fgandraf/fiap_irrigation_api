@@ -27,6 +27,8 @@ public class UserService implements UserDetailsService {
     public UserOutput save(UserRegisterInput registerInput) {
         var user = new User();
         BeanUtils.copyProperties(registerInput, user);
+        user.setActive(false);
+        user.setRole(UserRole.USER);
         user.setPassword(new BCryptPasswordEncoder().encode(registerInput.password()));
 
         return new UserOutput(repository.save(user));
