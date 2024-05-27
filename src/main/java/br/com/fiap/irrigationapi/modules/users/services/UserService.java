@@ -79,7 +79,7 @@ public class UserService implements UserDetailsService {
             BeanUtils.copyProperties(userDetail, user);
             return user;
         } else {
-            throw new NotFoundException("User", id);
+            throw new NotFoundException("User", email);
         }
     }
 
