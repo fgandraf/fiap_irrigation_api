@@ -1,9 +1,8 @@
-package br.com.fiap.irrigationapi.modules.sensors.controllers;
+package br.com.fiap.irrigationapi.modules.sensors;
 
 import br.com.fiap.irrigationapi.modules.sensors.dtos.CreateSensor;
 import br.com.fiap.irrigationapi.modules.sensors.dtos.OutputSensor;
 import br.com.fiap.irrigationapi.modules.sensors.dtos.UpdateSensor;
-import br.com.fiap.irrigationapi.modules.sensors.services.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

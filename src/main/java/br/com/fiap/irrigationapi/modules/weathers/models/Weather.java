@@ -1,6 +1,6 @@
 package br.com.fiap.irrigationapi.modules.weathers.models;
 
-import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
+import br.com.fiap.irrigationapi.modules.sensors.Sensor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;

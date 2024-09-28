@@ -1,8 +1,8 @@
-package br.com.fiap.irrigationapi.modules.sensors.models;
+package br.com.fiap.irrigationapi.modules.sensors;
 
 import br.com.fiap.irrigationapi.modules.weathers.models.Weather;
-import br.com.fiap.irrigationapi.modules.areas.models.Area;
-import br.com.fiap.irrigationapi.modules.notifications.models.Notification;
+import br.com.fiap.irrigationapi.modules.areas.Area;
+import br.com.fiap.irrigationapi.modules.notifications.Notification;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
@@ -18,9 +18,8 @@ import java.util.List;
 public class Sensor {
 
     @Id
-    @Column(name = "sensor_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SENSOR")
-    @SequenceGenerator(name = "SEQ_SENSOR", sequenceName = "SEQ_SENSOR", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "SENSOR_ID")
     private Long id;
 
     private String type;

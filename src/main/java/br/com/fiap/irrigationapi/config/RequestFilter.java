@@ -1,6 +1,6 @@
 package br.com.fiap.irrigationapi.config;
 
-import br.com.fiap.irrigationapi.modules.users.repositories.UserRepository;
+import br.com.fiap.irrigationapi.modules.users.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

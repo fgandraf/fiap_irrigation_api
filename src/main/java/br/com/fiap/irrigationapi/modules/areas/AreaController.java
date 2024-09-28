@@ -1,9 +1,8 @@
-package br.com.fiap.irrigationapi.modules.areas.controllers;
+package br.com.fiap.irrigationapi.modules.areas;
 
 import br.com.fiap.irrigationapi.modules.areas.dtos.CreateArea;
 import br.com.fiap.irrigationapi.modules.areas.dtos.OutputArea;
 import br.com.fiap.irrigationapi.modules.areas.dtos.UpdateArea;
-import br.com.fiap.irrigationapi.modules.areas.services.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,5 @@
-package br.com.fiap.irrigationapi.modules.notifications.repositories;
+package br.com.fiap.irrigationapi.modules.notifications;
 
-import br.com.fiap.irrigationapi.modules.notifications.models.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,11 +1,8 @@
-package br.com.fiap.irrigationapi.modules.users.controllers;
+package br.com.fiap.irrigationapi.modules.users;
 
 import br.com.fiap.irrigationapi.config.TokenService;
 import br.com.fiap.irrigationapi.modules.users.dtos.*;
-import br.com.fiap.irrigationapi.modules.users.models.User;
-import br.com.fiap.irrigationapi.modules.users.services.UserService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -18,17 +15,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 public class UserController {
 
-    @Autowired
-    private UserService service;
+    private final UserService service;
+    private final AuthenticationManager authenticationManager;
+    private final TokenService tokenService;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private TokenService tokenService;
+    public UserController(UserService service, AuthenticationManager authenticationManager, TokenService tokenService) {
+        this.service = service;
+        this.authenticationManager = authenticationManager;
+        this.tokenService = tokenService;
+    }
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid LoginInput loginInput) {
+    public ResponseEntity<LoginOutput> login(@RequestBody @Valid LoginInput loginInput) {
 
         var usernamePassword = new UsernamePasswordAuthenticationToken(
                 loginInput.email(),
@@ -50,14 +48,14 @@ public class UserController {
 
     @PutMapping("/activate/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity activate(@PathVariable Long id) {
+    public ResponseEntity<User> activate(@PathVariable Long id) {
         var user = service.activate(id);
         return ResponseEntity.ok(user);
     }
 
     @PutMapping("/deactivate/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity deactivate(@PathVariable Long id) {
+    public ResponseEntity<User> deactivate(@PathVariable Long id) {
         var user = service.deactivate(id);
         return ResponseEntity.ok(user);
     }
@@ -76,14 +74,14 @@ public class UserController {
 
     @PutMapping("/upgrade-permission/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity upgradePermission(@PathVariable Long id) {
+    public ResponseEntity<User> upgradePermission(@PathVariable Long id) {
         var user = service.upgradePermission(id);
         return ResponseEntity.ok(user);
     }
 
     @PutMapping("/downgrade-permission/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity downgradePermission(@PathVariable Long id) {
+    public ResponseEntity<User> downgradePermission(@PathVariable Long id) {
         var user = service.downgradePermission(id);
         return ResponseEntity.ok(user);
     }

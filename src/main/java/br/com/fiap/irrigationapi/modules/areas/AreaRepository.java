@@ -1,6 +1,5 @@
-package br.com.fiap.irrigationapi.modules.areas.repositories;
+package br.com.fiap.irrigationapi.modules.areas;
 
-import br.com.fiap.irrigationapi.modules.areas.models.Area;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AreaRepository extends JpaRepository<Area, Long> {}

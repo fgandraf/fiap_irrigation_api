@@ -1,4 +1,4 @@
-package br.com.fiap.irrigationapi.modules.users.models;
+package br.com.fiap.irrigationapi.modules.users.enums;
 
 public enum UserRole {
     ADMIN( "admin"),

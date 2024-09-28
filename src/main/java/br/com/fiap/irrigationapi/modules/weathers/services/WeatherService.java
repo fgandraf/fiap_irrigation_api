@@ -1,7 +1,7 @@
 package br.com.fiap.irrigationapi.modules.weathers.services;
 
 import br.com.fiap.irrigationapi.exceptions.NotFoundException;
-import br.com.fiap.irrigationapi.modules.sensors.repositories.SensorRepository;
+import br.com.fiap.irrigationapi.modules.sensors.SensorRepository;
 import br.com.fiap.irrigationapi.modules.weathers.dtos.CreateWeather;
 import br.com.fiap.irrigationapi.modules.weathers.dtos.OutputWeather;
 import br.com.fiap.irrigationapi.modules.weathers.dtos.UpdateWeather;

@@ -1,7 +1,6 @@
 package br.com.fiap.irrigationapi.modules.sensors.dtos;
 
-import br.com.fiap.irrigationapi.modules.notifications.models.Notification;
-import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
+import br.com.fiap.irrigationapi.modules.notifications.Notification;
 import br.com.fiap.irrigationapi.modules.weathers.models.Weather;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,15 +21,4 @@ public record CreateSensor(
 
         List<Notification> notifications
 ) {
-
-    public CreateSensor(Sensor sensor){
-        this(
-            sensor.getType(),
-            sensor.getLocation(),
-            sensor.getArea().getId(),
-            sensor.getWeathers(),
-            sensor.getNotifications()
-        );
-    }
-
 }

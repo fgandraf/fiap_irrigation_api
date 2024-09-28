@@ -1,13 +1,11 @@
-package br.com.fiap.irrigationapi.modules.sensors.services;
+package br.com.fiap.irrigationapi.modules.sensors;
 
 import br.com.fiap.irrigationapi.exceptions.DatabaseException;
 import br.com.fiap.irrigationapi.exceptions.NotFoundException;
-import br.com.fiap.irrigationapi.modules.areas.repositories.AreaRepository;
+import br.com.fiap.irrigationapi.modules.areas.AreaRepository;
 import br.com.fiap.irrigationapi.modules.sensors.dtos.CreateSensor;
 import br.com.fiap.irrigationapi.modules.sensors.dtos.OutputSensor;
 import br.com.fiap.irrigationapi.modules.sensors.dtos.UpdateSensor;
-import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
-import br.com.fiap.irrigationapi.modules.sensors.repositories.SensorRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

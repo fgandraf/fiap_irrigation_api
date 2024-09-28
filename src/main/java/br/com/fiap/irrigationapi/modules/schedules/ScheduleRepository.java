@@ -1,6 +1,5 @@
-package br.com.fiap.irrigationapi.modules.schedules.repositories;
+package br.com.fiap.irrigationapi.modules.schedules;
 
-import br.com.fiap.irrigationapi.modules.schedules.models.Schedule;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package br.com.fiap.irrigationapi.modules.notifications.models;
+package br.com.fiap.irrigationapi.modules.notifications;
 
-import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
+import br.com.fiap.irrigationapi.modules.sensors.Sensor;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,9 +15,8 @@ import java.time.LocalDateTime;
 public class Notification {
 
     @Id
-    @Column(name = "notification_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_NOTIFICATION")
-    @SequenceGenerator(name = "SEQ_NOTIFICATION", sequenceName = "SEQ_NOTIFICATION", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "NOTIFICATION_ID")
     private Long id;
 
     private String description;

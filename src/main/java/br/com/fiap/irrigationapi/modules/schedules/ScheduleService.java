@@ -1,10 +1,8 @@
-package br.com.fiap.irrigationapi.modules.schedules.services;
+package br.com.fiap.irrigationapi.modules.schedules;
 
 import br.com.fiap.irrigationapi.exceptions.NotFoundException;
 import br.com.fiap.irrigationapi.modules.schedules.dtos.CreateSchedule;
 import br.com.fiap.irrigationapi.modules.schedules.dtos.UpdateSchedule;
-import br.com.fiap.irrigationapi.modules.schedules.models.Schedule;
-import br.com.fiap.irrigationapi.modules.schedules.repositories.ScheduleRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

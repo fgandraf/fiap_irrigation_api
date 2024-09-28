@@ -1,6 +1,6 @@
-package br.com.fiap.irrigationapi.modules.areas.models;
+package br.com.fiap.irrigationapi.modules.areas;
 
-import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
+import br.com.fiap.irrigationapi.modules.sensors.Sensor;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,9 +15,8 @@ import java.util.List;
 public class Area {
 
     @Id
-    @Column(name = "area_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_AREA")
-    @SequenceGenerator(name = "SEQ_AREA", sequenceName = "SEQ_AREA", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "AREA_ID")
     private Long id;
 
     private String description;

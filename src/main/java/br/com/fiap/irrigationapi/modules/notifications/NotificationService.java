@@ -1,12 +1,10 @@
-package br.com.fiap.irrigationapi.modules.notifications.services;
+package br.com.fiap.irrigationapi.modules.notifications;
 
 import br.com.fiap.irrigationapi.exceptions.NotFoundException;
 import br.com.fiap.irrigationapi.modules.notifications.dtos.CreateNotification;
 import br.com.fiap.irrigationapi.modules.notifications.dtos.OutputNotification;
 import br.com.fiap.irrigationapi.modules.notifications.dtos.UpdateNotification;
-import br.com.fiap.irrigationapi.modules.notifications.models.Notification;
-import br.com.fiap.irrigationapi.modules.notifications.repositories.NotificationRepository;
-import br.com.fiap.irrigationapi.modules.sensors.repositories.SensorRepository;
+import br.com.fiap.irrigationapi.modules.sensors.SensorRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,12 +1,10 @@
-package br.com.fiap.irrigationapi.modules.areas.services;
+package br.com.fiap.irrigationapi.modules.areas;
 
 import br.com.fiap.irrigationapi.exceptions.DatabaseException;
 import br.com.fiap.irrigationapi.exceptions.NotFoundException;
 import br.com.fiap.irrigationapi.modules.areas.dtos.CreateArea;
 import br.com.fiap.irrigationapi.modules.areas.dtos.OutputArea;
 import br.com.fiap.irrigationapi.modules.areas.dtos.UpdateArea;
-import br.com.fiap.irrigationapi.modules.areas.models.Area;
-import br.com.fiap.irrigationapi.modules.areas.repositories.AreaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package br.com.fiap.irrigationapi.modules.notifications.dtos;
 
-import br.com.fiap.irrigationapi.modules.notifications.models.Notification;
+import br.com.fiap.irrigationapi.modules.notifications.Notification;
 import java.time.LocalDateTime;
 
 public record OutputNotification(

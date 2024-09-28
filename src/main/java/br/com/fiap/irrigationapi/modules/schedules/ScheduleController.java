@@ -1,9 +1,7 @@
-package br.com.fiap.irrigationapi.modules.schedules.controllers;
+package br.com.fiap.irrigationapi.modules.schedules;
 
 import br.com.fiap.irrigationapi.modules.schedules.dtos.CreateSchedule;
 import br.com.fiap.irrigationapi.modules.schedules.dtos.UpdateSchedule;
-import br.com.fiap.irrigationapi.modules.schedules.models.Schedule;
-import br.com.fiap.irrigationapi.modules.schedules.services.ScheduleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,7 +45,7 @@ public class ScheduleController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        if (!service.findById(id).isPresent()) {
+        if (service.findById(id).isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         service.deleteById(id);

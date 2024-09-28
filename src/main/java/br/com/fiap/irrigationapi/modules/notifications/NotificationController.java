@@ -1,9 +1,8 @@
-package br.com.fiap.irrigationapi.modules.notifications.controllers;
+package br.com.fiap.irrigationapi.modules.notifications;
 
 import br.com.fiap.irrigationapi.modules.notifications.dtos.CreateNotification;
 import br.com.fiap.irrigationapi.modules.notifications.dtos.OutputNotification;
 import br.com.fiap.irrigationapi.modules.notifications.dtos.UpdateNotification;
-import br.com.fiap.irrigationapi.modules.notifications.services.NotificationService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,5 @@
-package br.com.fiap.irrigationapi.modules.sensors.repositories;
+package br.com.fiap.irrigationapi.modules.sensors;
 
-import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SensorRepository extends JpaRepository<Sensor, Long> {}

@@ -1,11 +1,9 @@
-package br.com.fiap.irrigationapi.modules.users.services;
+package br.com.fiap.irrigationapi.modules.users;
 
 import br.com.fiap.irrigationapi.exceptions.NotFoundException;
 import br.com.fiap.irrigationapi.modules.users.dtos.UserOutput;
 import br.com.fiap.irrigationapi.modules.users.dtos.UserRegisterInput;
-import br.com.fiap.irrigationapi.modules.users.models.User;
-import br.com.fiap.irrigationapi.modules.users.models.UserRole;
-import br.com.fiap.irrigationapi.modules.users.repositories.UserRepository;
+import br.com.fiap.irrigationapi.modules.users.enums.UserRole;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

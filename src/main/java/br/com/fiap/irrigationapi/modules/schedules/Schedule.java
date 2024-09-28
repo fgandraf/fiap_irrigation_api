@@ -1,4 +1,4 @@
-package br.com.fiap.irrigationapi.modules.schedules.models;
+package br.com.fiap.irrigationapi.modules.schedules;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
@@ -14,9 +14,8 @@ import java.time.LocalDateTime;
 public class Schedule {
 
     @Id
-    @Column(name = "schedule_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SCHEDULE")
-    @SequenceGenerator(name = "SEQ_SCHEDULE", sequenceName = "SEQ_SCHEDULE", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "SCHEDULE_ID")
     private Long id;
 
     @Column(name = "start_time")

@@ -1,6 +1,6 @@
 package br.com.fiap.irrigationapi.config;
 
-import br.com.fiap.irrigationapi.modules.users.models.User;
+import br.com.fiap.irrigationapi.modules.users.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

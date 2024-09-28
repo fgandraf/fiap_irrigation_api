@@ -1,7 +1,7 @@
 package br.com.fiap.irrigationapi.modules.areas.dtos;
 
-import br.com.fiap.irrigationapi.modules.areas.models.Area;
-import br.com.fiap.irrigationapi.modules.sensors.models.Sensor;
+import br.com.fiap.irrigationapi.modules.areas.Area;
+import br.com.fiap.irrigationapi.modules.sensors.Sensor;
 
 import java.util.List;
 
