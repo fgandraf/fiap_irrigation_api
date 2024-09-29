@@ -1,6 +1,6 @@
 # Irrigation API Java
 
-Aplicação API Irrigation
+FIAP API Irrigation
 
 ## Pré-requisitos
 
