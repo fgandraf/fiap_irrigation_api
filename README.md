@@ -33,7 +33,3 @@ docker-compose build --no-cache
 ```sh
 docker-compose up --force-recreate
 ```
-
-## Falta configurar
-
-- Ambiente de desenvolvimento
