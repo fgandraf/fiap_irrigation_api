@@ -1,6 +1,6 @@
 package br.com.fiap.irrigationapi.modules.schedules.dtos;
 
-import br.com.fiap.irrigationapi.modules.schedules.models.Schedule;
+import br.com.fiap.irrigationapi.modules.schedules.Schedule;
 
 import java.time.LocalDateTime;
 

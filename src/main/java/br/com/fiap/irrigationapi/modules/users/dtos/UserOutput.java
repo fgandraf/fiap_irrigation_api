@@ -1,7 +1,7 @@
 package br.com.fiap.irrigationapi.modules.users.dtos;
 
-import br.com.fiap.irrigationapi.modules.users.models.User;
-import br.com.fiap.irrigationapi.modules.users.models.UserRole;
+import br.com.fiap.irrigationapi.modules.users.User;
+import br.com.fiap.irrigationapi.modules.users.enums.UserRole;
 
 public record UserOutput(
     Long id,

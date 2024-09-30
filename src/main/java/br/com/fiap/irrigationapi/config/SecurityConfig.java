@@ -32,6 +32,9 @@ public class SecurityConfig {
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
 
+                        .requestMatchers(HttpMethod.GET, "/api").anonymous()
+
+
                         // AREAS
                         .requestMatchers(HttpMethod.POST, "/api/areas").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/areas").hasRole("ADMIN")
