@@ -10,7 +10,7 @@
     </parent>
     <groupId>br.com.fiap</groupId>
     <artifactId>irrigationapi</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>irrigationapi</name>
     <description>An Inteligent Irrigation API</description>
     <properties>

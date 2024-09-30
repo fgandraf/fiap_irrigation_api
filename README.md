@@ -1,3 +1,2 @@
-- Dockerfile
 - Compose (app e o mysql)
 - Workflows
