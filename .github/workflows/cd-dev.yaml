@@ -43,5 +43,5 @@ jobs:
         with:
           app-name: 'irrigation-api'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AZURE_PROFILE }}
+          publish-profile: ${{ secrets.AZURE_PROFILE_DEV }}
           images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/irrigation-api-dev:${{ github.sha }}'
