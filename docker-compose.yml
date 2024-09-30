@@ -3,7 +3,7 @@ services:
     image: mysql:8
     container_name: mysqldb
     environment:
-      MYSQL_ROOT_PASSWORD: 1q2w3e4r
+      MYSQL_ROOT_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
       MYSQL_DATABASE: irrigation_db
     ports:
       - "3306:3306"
@@ -29,8 +29,8 @@ services:
     environment:
       - PROFILE=prd
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/irrigation_db?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=1q2w3e4r
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
     ports:
       - "8080:8080"
     networks:

@@ -11,7 +11,7 @@ FIAP API Irrigation
 ## Build e execução
 
 ```sh
-docker-compose up --build
+docker-compose -p irrigation up --build -d
 ```
 
 ## Falta configurar
