@@ -33,4 +33,4 @@ docker-compose up --force-recreate
 
 ## Falta configurar
 
-- Workflows
+- Ambiente de desenvolvimento
