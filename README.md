@@ -16,8 +16,6 @@ FIAP API Irrigation
 echo -e "JWT_SECRET=irrigation\nDATABASE_PASSWORD=1q2w3e4R\nDATABASE_USER=root\nDATABASE_URL=jdbc:mysql://mysqldb:3306/irrigation_db" > .env
 ```
 
-* Subsituir `root-password` pela senha a ser definida ao usuário root do MySQL
-
 
 ## Build e Execução
 
