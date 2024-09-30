@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import java.net.URI;
 import java.util.Optional;
 
@@ -40,7 +41,7 @@ public class ScheduleController {
 
     @PutMapping
     public ResponseEntity<Schedule> update(@RequestBody @Valid UpdateSchedule schedule) {
-            return ResponseEntity.ok(service.update(schedule));
+        return ResponseEntity.ok(service.update(schedule));
     }
 
     @DeleteMapping("/{id}")

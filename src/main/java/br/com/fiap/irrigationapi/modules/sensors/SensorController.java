@@ -20,29 +20,29 @@ public class SensorController {
     private SensorService service;
 
     @PostMapping
-    public ResponseEntity<OutputSensor> create(@RequestBody CreateSensor createSensor){
+    public ResponseEntity<OutputSensor> create(@RequestBody CreateSensor createSensor) {
         OutputSensor outputSensor = service.create(createSensor);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{/id}").buildAndExpand(outputSensor.id()).toUri();
         return ResponseEntity.created(location).body(outputSensor);
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<OutputSensor> getById(@PathVariable Long id){
+    public ResponseEntity<OutputSensor> getById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
     @GetMapping("/all")
-    public Page<OutputSensor> getAll(Pageable pageable){
+    public Page<OutputSensor> getAll(Pageable pageable) {
         return service.findAll(pageable);
     }
 
     @PutMapping
-    public OutputSensor update(@RequestBody UpdateSensor updateSensor){
+    public OutputSensor update(@RequestBody UpdateSensor updateSensor) {
         return service.update(updateSensor);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }

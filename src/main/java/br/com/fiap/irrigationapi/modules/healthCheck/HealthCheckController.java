@@ -13,7 +13,7 @@ public class HealthCheckController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> getIndexByFolder(){
+    public ResponseEntity<String> getIndexByFolder() {
         return ResponseEntity.ok("Health Check: OK");
     }
 }

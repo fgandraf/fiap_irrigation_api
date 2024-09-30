@@ -4,9 +4,9 @@ import br.com.fiap.irrigationapi.modules.notifications.dtos.CreateNotification;
 import br.com.fiap.irrigationapi.modules.notifications.dtos.OutputNotification;
 import br.com.fiap.irrigationapi.modules.notifications.dtos.UpdateNotification;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -33,7 +33,7 @@ public class NotificationController {
     }
 
     @GetMapping("/all")
-    public Page<OutputNotification> getAll(Pageable pageable){
+    public Page<OutputNotification> getAll(Pageable pageable) {
         return service.findAll(pageable);
     }
 

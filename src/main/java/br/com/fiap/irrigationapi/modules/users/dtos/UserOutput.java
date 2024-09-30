@@ -4,11 +4,11 @@ import br.com.fiap.irrigationapi.modules.users.User;
 import br.com.fiap.irrigationapi.modules.users.enums.UserRole;
 
 public record UserOutput(
-    Long id,
-    String name,
-    String email,
-    UserRole role
-){
+        Long id,
+        String name,
+        String email,
+        UserRole role
+) {
     public UserOutput(User user) {
         this(
                 user.getId(),

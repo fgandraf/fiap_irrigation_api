@@ -36,7 +36,7 @@ public class WeatherService {
             BeanUtils.copyProperties(updateWeather, foundWeather);
             foundWeather.setSensor(sensorRepository.getReferenceById(updateWeather.sensorId()));
             return new OutputWeather(weatherRepository.save(foundWeather));
-        }catch(EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new NotFoundException("Weather", updateWeather.id());
         }
     }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,8 +16,7 @@ public class Schedule {
 
     @Id
     @Column(name = "schedule_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SCHEDULE")
-    @SequenceGenerator(name = "SEQ_SCHEDULE", sequenceName = "SEQ_SCHEDULE", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "start_time")

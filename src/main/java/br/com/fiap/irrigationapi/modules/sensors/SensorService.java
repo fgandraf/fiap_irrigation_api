@@ -23,7 +23,7 @@ public class SensorService {
     @Autowired
     private AreaRepository areaRepository;
 
-    public OutputSensor create(CreateSensor createSensor){
+    public OutputSensor create(CreateSensor createSensor) {
         Sensor sensor = new Sensor();
         BeanUtils.copyProperties(createSensor, sensor);
         sensor.setArea(areaRepository.getReferenceById(createSensor.areaId()));
@@ -31,30 +31,30 @@ public class SensorService {
         return new OutputSensor(sensor);
     }
 
-    public OutputSensor findById(Long id){
+    public OutputSensor findById(Long id) {
         return new OutputSensor(sensorRepository.findById(id).orElseThrow(() -> new NotFoundException("Sensor", id)));
     }
 
-    public Page<OutputSensor> findAll(Pageable pageable){
+    public Page<OutputSensor> findAll(Pageable pageable) {
         return sensorRepository.findAll(pageable).map(OutputSensor::new);
     }
 
-    public OutputSensor update(UpdateSensor updateSensor){
-        try{
+    public OutputSensor update(UpdateSensor updateSensor) {
+        try {
             Sensor foundSensor = sensorRepository.getReferenceById(updateSensor.id());
             BeanUtils.copyProperties(updateSensor, foundSensor);
             foundSensor.setArea(areaRepository.getReferenceById(updateSensor.areaId()));
             return new OutputSensor(sensorRepository.save(foundSensor));
-        }catch (EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new NotFoundException("Sensor", updateSensor.id());
         }
     }
 
-    public void delete(Long id){
-        try{
-            if(!sensorRepository.existsById(id)) throw new NotFoundException("Sensor", id);
+    public void delete(Long id) {
+        try {
+            if (!sensorRepository.existsById(id)) throw new NotFoundException("Sensor", id);
             sensorRepository.deleteById(id);
-        }catch(DataIntegrityViolationException e){
+        } catch (DataIntegrityViolationException e) {
             throw new DatabaseException(e.getMessage());
         }
     }

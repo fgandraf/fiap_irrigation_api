@@ -15,14 +15,14 @@ public record OutputSensor(
         List<Notification> notifications
 ) {
 
-    public OutputSensor(Sensor sensor){
+    public OutputSensor(Sensor sensor) {
         this(
-            sensor.getId(),
-            sensor.getType(),
-            sensor.getLocation(),
-            sensor.getArea().getId(),
-            sensor.getWeathers(),
-            sensor.getNotifications()
+                sensor.getId(),
+                sensor.getType(),
+                sensor.getLocation(),
+                sensor.getArea().getId(),
+                sensor.getWeathers(),
+                sensor.getNotifications()
         );
     }
 

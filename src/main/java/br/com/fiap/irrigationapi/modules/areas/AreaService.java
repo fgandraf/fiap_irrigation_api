@@ -19,36 +19,36 @@ public class AreaService {
     @Autowired
     private AreaRepository areaRepository;
 
-    public OutputArea create(CreateArea createArea){
+    public OutputArea create(CreateArea createArea) {
         Area newArea = new Area();
         BeanUtils.copyProperties(createArea, newArea);
         newArea = areaRepository.save(newArea);
         return new OutputArea(newArea);
     }
 
-    public OutputArea findById(Long id){
+    public OutputArea findById(Long id) {
         return new OutputArea(areaRepository.findById(id).orElseThrow(() -> new NotFoundException("Area", id)));
     }
 
-    public Page<OutputArea> findAll(Pageable pageable){
+    public Page<OutputArea> findAll(Pageable pageable) {
         return areaRepository.findAll(pageable).map(OutputArea::new);
     }
 
-    public OutputArea update(UpdateArea updateArea){
+    public OutputArea update(UpdateArea updateArea) {
         try {
             Area foundArea = areaRepository.getReferenceById(updateArea.id());
             BeanUtils.copyProperties(updateArea, foundArea);
             return new OutputArea(areaRepository.save(foundArea));
-        }catch(EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new NotFoundException("Area", updateArea.id());
         }
     }
 
-    public void delete(Long id){
-        try{
-            if(!areaRepository.existsById(id)) throw new NotFoundException("Area", id);
+    public void delete(Long id) {
+        try {
+            if (!areaRepository.existsById(id)) throw new NotFoundException("Area", id);
             areaRepository.deleteById(id);
-        }catch(DataIntegrityViolationException e){
+        } catch (DataIntegrityViolationException e) {
             throw new DatabaseException(e.getMessage());
         }
     }

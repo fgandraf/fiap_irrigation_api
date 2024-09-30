@@ -23,13 +23,13 @@ public record CreateSensor(
         List<Notification> notifications
 ) {
 
-    public CreateSensor(Sensor sensor){
+    public CreateSensor(Sensor sensor) {
         this(
-            sensor.getType(),
-            sensor.getLocation(),
-            sensor.getArea().getId(),
-            sensor.getWeathers(),
-            sensor.getNotifications()
+                sensor.getType(),
+                sensor.getLocation(),
+                sensor.getArea().getId(),
+                sensor.getWeathers(),
+                sensor.getNotifications()
         );
     }
 

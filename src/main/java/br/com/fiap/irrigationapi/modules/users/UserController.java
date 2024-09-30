@@ -34,7 +34,7 @@ public class UserController {
         );
 
         var auth = authenticationManager.authenticate(usernamePassword);
-        var user = (User)auth.getPrincipal();
+        var user = (User) auth.getPrincipal();
 
         var token = tokenService.generateToken(user);
         return ResponseEntity.ok(new LoginOutput(token));

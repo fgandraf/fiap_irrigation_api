@@ -27,7 +27,7 @@ public record UpdateSensor(
         List<Notification> notifications
 ) {
 
-    public UpdateSensor(Sensor sensor){
+    public UpdateSensor(Sensor sensor) {
         this(
                 sensor.getId(),
                 sensor.getType(),

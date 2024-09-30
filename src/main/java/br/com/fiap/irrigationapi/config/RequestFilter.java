@@ -10,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import java.io.IOException;
 
 
@@ -31,11 +32,11 @@ public class RequestFilter extends OncePerRequestFilter {
             var token = authorizationHeader.replace("Bearer ", "").trim();
             var login = tokenService.validateToken(token);
             var user = repository.findByEmail(login);
-            var authenticationToken = new UsernamePasswordAuthenticationToken (user, null, user.getAuthorities());
+            var authenticationToken = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }
 
-        filterChain.doFilter(request,response);
+        filterChain.doFilter(request, response);
     }
 }

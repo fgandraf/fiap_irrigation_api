@@ -30,7 +30,7 @@ public class ScheduleService {
             Schedule foundSchedule = scheduleRepository.getReferenceById(updateSchedule.id());
             BeanUtils.copyProperties(updateSchedule, foundSchedule);
             return scheduleRepository.save(foundSchedule);
-        }catch(EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new NotFoundException("Schedule", updateSchedule.id());
         }
     }

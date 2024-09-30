@@ -37,7 +37,7 @@ public class NotificationService {
             BeanUtils.copyProperties(updateNotification, foundNotification);
             foundNotification.setSensor(sensorRepository.getReferenceById(updateNotification.sensorId()));
             return new OutputNotification(notificationRepository.save(foundNotification));
-        }catch (EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new NotFoundException("Notification", updateNotification.id());
         }
     }
