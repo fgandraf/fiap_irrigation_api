@@ -13,19 +13,25 @@ FIAP API Irrigation
 ##### Na raiz do projeto, executar:
 
 ```sh
-echo -e "JWT_SECRET=irrigation\nSPRING_DATASOURCE_PASSWORD=root-password" > .env
+echo -e "JWT_SECRET=irrigation\nDATABASE_PASSWORD=1q2w3e4R\nDATABASE_USER=root\nDATABASE_URL=jdbc:mysql://mysqldb:3306/irrigation_db" > .env
 ```
 
 * Subsituir `root-password` pela senha a ser definida ao usuário root do MySQL
 
 
-## Build e execução
+## Build e Execução
 
 ```sh
-docker-compose -p irrigation up --build -d
+docker-compose down -v --rmi all --remove-orphans
 ```
 
+```sh
+docker-compose build --no-cache
+```
 
+```sh
+docker-compose up --force-recreate
+```
 
 ## Falta configurar
 
