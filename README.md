@@ -17,7 +17,7 @@ echo -e "JWT_SECRET=irrigation\nDATABASE_PASSWORD=1q2w3e4R\nDATABASE_USER=root\n
 ```
 
 
-## Build e Execução
+## Build
 
 ```sh
 docker-compose down -v --rmi all --remove-orphans
@@ -26,6 +26,9 @@ docker-compose down -v --rmi all --remove-orphans
 ```sh
 docker-compose build --no-cache
 ```
+
+## Execução
+
 
 ```sh
 docker-compose up --force-recreate
