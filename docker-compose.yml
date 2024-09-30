@@ -28,8 +28,6 @@ services:
           condition: service_healthy
     environment:
       - PROFILE=prd
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/irrigation_db?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
       - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
     ports:
