@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'production'
+      name: 'development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -42,6 +42,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'irrigation-api'
-          slot-name: 'production'
+          slot-name: 'development'
           publish-profile: ${{ secrets.AZURE_PROFILE_DEV }}
           images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/irrigation-api-dev:latest'
