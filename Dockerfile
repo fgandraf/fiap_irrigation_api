@@ -3,8 +3,7 @@ RUN mkdir /opt/app
 COPY . /opt/app
 WORKDIR /opt/app
 
-#RUN mvn clean package
-RUN mvn clean package -DskipTests
+RUN mvn clean package
 
 FROM eclipse-temurin:21-jre
 RUN mkdir /opt/app
