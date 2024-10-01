@@ -10,7 +10,7 @@ FIAP API Irrigation
 
 ## Criar as variáveis de ambiente
 
-##### Na raiz do projeto, executar:
+##### Na raiz do projeto, executar: 
 
 ```sh
 echo -e "JWT_SECRET=irrigation\nDATABASE_PASSWORD=1q2w3e4R\nDATABASE_USER=root\nDATABASE_URL=jdbc:mysql://mysqldb:3306/irrigation_db" > .env
